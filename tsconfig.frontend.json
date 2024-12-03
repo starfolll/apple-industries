@@ -21,7 +21,6 @@
     "skipLibCheck": true
   },
   "include": [
-    "packages/frontend/src/**/*.ts",
-    "packages/frontend/src/**/*.vue"
+    "packages/frontend/src/**/*"
   ]
 }

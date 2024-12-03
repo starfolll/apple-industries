@@ -6,6 +6,7 @@
     "packages/*"
   ],
   "scripts": {
+    "frontend:dev": "bun run --cwd packages/frontend dev",
     "lint": "eslint --cache",
     "lint:fix": "eslint --cache --fix"
   },
