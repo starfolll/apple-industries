@@ -2,6 +2,9 @@
   "name": "apple-industires",
   "type": "module",
   "module": "index.ts",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "lint": "eslint --cache",
     "lint:fix": "eslint --cache --fix"
