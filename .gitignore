@@ -176,3 +176,7 @@ dist-ssr
 
 # Finder (MacOS) folder config
 .DS_Store
+
+# Terraform
+terraform/terraform*
+terraform/.terraform*
