@@ -25,7 +25,6 @@
     "skipLibCheck": true
   },
   "include": [
-    "packages/backend/**/*.ts",
     "packages/frontend/vite.config.ts"
   ]
 }

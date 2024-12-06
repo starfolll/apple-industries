@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import TextMirrored from '../components/ui/text-mirrored.vue'
 import Textarea from '../components/ui/textarea.vue'
+import LayoutTask from '../layouts/layout-task.vue'
 import { mirrorText } from '../utils/mirror-text'
 
 const textToMirror = ref('Hello world! This is me 🚀 MARIO!\n\nWhere is my princess? Again in another castle?! 🏰')
@@ -9,13 +10,13 @@ const mirroredText = computed(() => mirrorText(textToMirror.value))
 </script>
 
 <template>
-  <div class="flex flex-col gap-8 pb-64">
-    <h1 class="text-3xl">
+  <LayoutTask>
+    <template #title>
       Mirror, Mirror on the Screen
-    </h1>
+    </template>
 
     <div class="grid gap-4 rounded-md border-2 border-neutral-200 text-neutral-600 p-2">
-      <p class="text-lg text-indigo-500">
+      <p class="text-lg text-rose-500">
         Task
       </p>
 
@@ -27,14 +28,14 @@ const mirroredText = computed(() => mirrorText(textToMirror.value))
     </div>
 
     <div class="grid gap-4 rounded-md border-2 border-neutral-200 text-neutral-600 p-2">
-      <p class="text-lg text-indigo-500">
+      <p class="text-lg text-rose-500">
         General thoughts
       </p>
 
       <p>
-        <span class="underline">
+        <u>
           First approach (Mirrored text with function).
-        </span>
+        </u>
         <br>
         At the beginning my thoughts was to simply reverse the string. There are some caveats to this approach, like the
         the emojis, special characters and html tags or markdown syntax. So far, not a lot of edge cases were considered, as it seems...
@@ -45,9 +46,9 @@ const mirroredText = computed(() => mirrorText(textToMirror.value))
       </p>
 
       <p>
-        <span class="underline">
+        <u>
           Second approach (Mirrored text with css) (The best one 🍰)
-        </span>
+        </u>
         <br>
         This solution, as far the most optimal one.
         At first, we shouldn't block the JavaScript thread, that will reduce the CPU usage.
@@ -58,9 +59,9 @@ const mirroredText = computed(() => mirrorText(textToMirror.value))
       </p>
 
       <p>
-        <span class="underline">
+        <u>
           Close to ideal solution (will not work in most cases).
-        </span>
+        </u>
         <br>
         I found a screen flipping device, that does that on a hardware level.
         The downside of this is that it will cost money and add additional expenses and complexity to the project.
@@ -94,7 +95,7 @@ const mirroredText = computed(() => mirrorText(textToMirror.value))
           <p>Mirrored text with css</p>
 
           <div class="border-2 relative border-neutral-200 rounded-md p-2 h-full">
-            <div class="bg-indigo-500 text-indigo-100 font-semibold text-nowrap py-2 pl-1 rounded-full absolute top-1/2 -translate-y-1/2 left-full ml-1 writing-vertical-rl">
+            <div class="bg-rose-500 text-rose-100 font-semibold text-nowrap py-2 pl-1 rounded-full absolute top-1/2 -translate-y-1/2 left-full ml-1 writing-vertical-rl">
               align mirror here
             </div>
 
@@ -107,7 +108,7 @@ const mirroredText = computed(() => mirrorText(textToMirror.value))
     </div>
 
     <div class="grid gap-4 rounded-md border-2 border-neutral-200 text-neutral-600 p-2">
-      <p class="text-lg text-indigo-500">
+      <p class="text-lg text-rose-500">
         Conclusion
       </p>
 
@@ -115,5 +116,5 @@ const mirroredText = computed(() => mirrorText(textToMirror.value))
         The best solution will be to flip the entire page with css to the angle that is needed.
       </p>
     </div>
-  </div>
+  </LayoutTask>
 </template>

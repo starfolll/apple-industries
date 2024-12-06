@@ -2,21 +2,31 @@
   "name": "apple-industires",
   "type": "module",
   "module": "index.ts",
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
+    "backend:start": "bun --env-file=../../.env run --cwd packages/backend start",
+    "backend:dev": "bun --env-file=../../.env run --cwd packages/backend dev",
     "frontend:start": "bun run --cwd packages/frontend dev",
     "frontend:dev": "bun run --cwd packages/frontend dev",
+    "dev": "concurrently --names web,server,prisma -c green,blue,cyan 'bun run frontend:dev' 'bun run backend:dev' 'bun run prisma:studio'",
+    "prisma": "bun --env-file=../../.env run --cwd libs/prisma-client with-prisma",
+    "prisma:studio": "bun --env-file=../../.env run --cwd libs/prisma-client studio",
     "lint": "eslint --cache",
     "lint:fix": "eslint --cache --fix"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
+  "dependencies": {
+    "concurrently": "^9.1.0",
+    "date-fns-tz": "^3.2.0",
+    "decimal.js": "^10.4.3"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^3.11.2",
     "@types/bun": "latest",
     "eslint": "^9.16.0"
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }
